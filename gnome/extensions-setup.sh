@@ -51,7 +51,7 @@ gsettings --schemadir $pop_shell_schemas set $pop_shell_settings activate-launch
 
 gtlw_schemas="$HOME/.local/share/gnome-shell/extensions/gnome-shell-go-to-last-workspace@github.com/schemas"
 gtlw_settings="org.gnome.shell.extensions.go-to-last-workspace"
-gsettings --schemadir $gtlw_schemas set $gtlw_settings shortcut-key "['<Alt>s']"
+gsettings --schemadir $gtlw_schemas set $gtlw_settings shortcut-key "['<Alt>d']"
 
 batind_schemas="$HOME/.local/share/gnome-shell/extensions/bluetooth-battery@michalw.github.com/schemas"
 batind_settings="org.gnome.shell.extensions.bluetooth_battery_indicator"

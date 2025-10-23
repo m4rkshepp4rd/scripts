@@ -141,7 +141,7 @@ gsettings set "$wm_keys" switch-to-workspace-9 "['<Alt>a']"
 gsettings set "$wm_keys" switch-to-workspace-10 "[]"
 gsettings set "$wm_keys" switch-to-workspace-11 "[]"
 gsettings set "$wm_keys" switch-to-workspace-12 "[]"
-gsettings set "$wm_keys" switch-to-workspace-last "['<Alt>d']"
+gsettings set "$wm_keys" switch-to-workspace-last "['<Alt>s']"
 
 gsettings set "$wm_keys" move-to-workspace-right "['<Control><Alt>f']"
 gsettings set "$wm_keys" move-to-workspace-left "['<Control><Alt>e']"
