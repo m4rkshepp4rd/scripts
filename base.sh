@@ -19,8 +19,10 @@ bash $MS_SCR/setup/bash.sh
 bash $MS_SCR/chmodx.sh
 bash $MS_SCR/bin-update.sh
 
-bash $MS_SCR/gnome/settings.sh
-bash $MS_SCR/gnome/shortcuts.sh
+if [[ $XDG_CURRENT_DESKTOP == "GNOME"]]; then
+    bash $MS_SCR/gnome/settings.sh  
+    bash $MS_SCR/gnome/shortcuts.sh 
+fi
 
 bash $MS_SCR/setup/base-symlinks.sh
 bash $MS_SCR/symlinks/docs.sh

@@ -48,7 +48,7 @@ dconf write "$custom_keys/copyq/binding" "'<Super><Alt>v'"
 dconf write "$custom_keys/copyq/command" "'copyq show'"
 dconf write "$custom_keys/copyq/name" "'copyq'"
 # Work bookmarks
-dconf write "$custom_keys/work-bookmarks/binding" "'<Super>z'"
+dconf write "$custom_keys/work-bookmarks/binding" "'<Super>n'"
 dconf write "$custom_keys/work-bookmarks/command" "'gnome-terminal --window-with-profile=work-bookmarks'"
 dconf write "$custom_keys/work-bookmarks/name" "'work-bookmarks'"
 # Jira search

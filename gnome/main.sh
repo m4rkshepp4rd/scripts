@@ -129,6 +129,8 @@ else
         sudo systemctl restart input-remapper
         sudo systemctl enable input-remapper
 
+        bash $SCRIPT_DIR/gnome/cleanup.sh
+
         clear
         echo "Linux setup id done! Rebooting to apply settings"
         sleep 3
