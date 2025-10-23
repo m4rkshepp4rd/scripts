@@ -12,15 +12,12 @@ from bs4 import BeautifulSoup
 
 
 
-# Путь к файлу с описанием задач
-# DATA_PATH = os.environ['VZ_JIRA_TASKS']
 DATA_PATH = os.environ['VZ_JIRA_DATA']
 INDEX_FILE = os.environ['VZ_JIRA_INDEX']
 if not DATA_PATH:
     raise Exception("Env var VZ_JIRA_DATA not defined")
 if not INDEX_FILE:
     raise Exception("Env var VZ_JIRA_INDEX not defined")
-# Токен для Jira
 TOKEN = open(os.environ['VZ_JIRA_TOKEN'], "r", encoding="utf-8").read()
 
 

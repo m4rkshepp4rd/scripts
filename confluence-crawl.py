@@ -9,14 +9,12 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from html2text import html2text
 
-# Путь к файлу с описанием задач
 DATA_PATH = os.environ['VZ_CONFL_DATA']
 INDEX_FILE = os.environ['VZ_CONFL_INDEX']
 if not DATA_PATH:
     raise Exception("Env var VZ_CONFL_DATA not defined")
 if not INDEX_FILE:
     raise Exception("Env var VZ_CONFL_INDEX not defined")
-# Токен для Confluence
 TOKEN = open(os.environ['VZ_CONFL_TOKEN'], "r", encoding="utf-8").read()
 
 HOST = "https://wiki.mos-team.ru"
