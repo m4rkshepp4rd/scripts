@@ -209,8 +209,8 @@ gsettings set "$wm_keys" panel-main-menu "['']"
 
 
 sd_plugins="org.gnome.settings-daemon.plugins"
-gsettings set "$sd_plugins.media-keys" calculator "['<Super><Alt>c']"
-gsettings set "$sd_plugins.media-keys" control-center "['<Super>1']"
+gsettings set "$sd_plugins.media-keys" calculator "['']"
+gsettings set "$sd_plugins.media-keys" control-center "['']"
 gsettings set "$sd_plugins.media-keys" home "[]"
 gsettings set "$sd_plugins.media-keys" www "[]"
 gsettings set "$sd_plugins.media-keys" help "[]"
@@ -283,7 +283,7 @@ gsettings set "$sd_plugins.power" idle-brightness 30
 gsettings set "$sd_plugins.power" idle-dim true
 gsettings set "$sd_plugins.power" power-button-action 'suspend'
 gsettings set "$sd_plugins.power" power-saver-profile-on-low-battery true
-gsettings set "$sd_plugins.power" sleep-inactive-ac-timeout 3600
+gsettings set "$sd_plugins.power" sleep-inactive-ac-timeout 7200
 gsettings set "$sd_plugins.power" sleep-inactive-ac-type 'suspend'
 gsettings set "$sd_plugins.power" sleep-inactive-battery-timeout 900
 gsettings set "$sd_plugins.power" sleep-inactive-battery-type 'nothing'

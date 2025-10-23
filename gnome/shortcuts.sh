@@ -36,19 +36,19 @@ dconf write "$custom_keys/telegram/binding" "'<Super>3'"
 dconf write "$custom_keys/telegram/command" "'Telegram'"
 dconf write "$custom_keys/telegram/name" "'telegram'"
 # my-browser
-dconf write "$custom_keys/my-browser/binding" "'<Super><Alt>b'"
+dconf write "$custom_keys/my-browser/binding" "'<Super>x'"
 dconf write "$custom_keys/my-browser/command" "'$MS_BROWSER'"
 dconf write "$custom_keys/my-browser/name" "'my-browser'"
 # work-browser
-dconf write "$custom_keys/work-browser/binding" "'<Super><Alt>z'"
+dconf write "$custom_keys/work-browser/binding" "'<Super>b'"
 dconf write "$custom_keys/work-browser/command" "'$VZ_WORK_BROWSER'"
 dconf write "$custom_keys/work-browser/name" "'work-browser'"
 # copyq
-dconf write "$custom_keys/copyq/binding" "'<Super><Alt>v'"
+dconf write "$custom_keys/copyq/binding" "'<Super>v'"
 dconf write "$custom_keys/copyq/command" "'copyq show'"
 dconf write "$custom_keys/copyq/name" "'copyq'"
 # Work bookmarks
-dconf write "$custom_keys/work-bookmarks/binding" "'<Super>n'"
+dconf write "$custom_keys/work-bookmarks/binding" "'<Super>h'"
 dconf write "$custom_keys/work-bookmarks/command" "'gnome-terminal --window-with-profile=work-bookmarks'"
 dconf write "$custom_keys/work-bookmarks/name" "'work-bookmarks'"
 # Jira search
@@ -60,11 +60,11 @@ dconf write "$custom_keys/confluence-search/binding" "'<Super>9'"
 dconf write "$custom_keys/confluence-search/command" "'gnome-terminal --window-with-profile=confluence-search'"
 dconf write "$custom_keys/confluence-search/name" "'confluence-search'"
 # fzfc
-dconf write "$custom_keys/fzfc/binding" "'<Super>c'"
+dconf write "$custom_keys/fzfc/binding" "'<Super>s'"
 dconf write "$custom_keys/fzfc/command" "'gnome-terminal --window-with-profile=fzfc'"
 dconf write "$custom_keys/fzfc/name" "'fzfc'"
 # fzfx
-dconf write "$custom_keys/fzfx/binding" "'<Super>x'"
+dconf write "$custom_keys/fzfx/binding" "'<Super>f'"
 dconf write "$custom_keys/fzfx/command" "'gnome-terminal --window-with-profile=fzfx'"
 dconf write "$custom_keys/fzfx/name" "'fzfx'"
 # fzfd
@@ -72,7 +72,7 @@ dconf write "$custom_keys/fzfd/binding" "'<Super>d'"
 dconf write "$custom_keys/fzfd/command" "'gnome-terminal --window-with-profile=fzfd'"
 dconf write "$custom_keys/fzfd/name" "'fzfd'"
 # fzfv
-dconf write "$custom_keys/fzfv/binding" "'<Super>v'"
+dconf write "$custom_keys/fzfv/binding" "'<Super>m'"
 dconf write "$custom_keys/fzfv/command" "'gnome-terminal --window-with-profile=fzfv'"
 dconf write "$custom_keys/fzfv/name" "'fzfv'"
 # envoker
@@ -80,11 +80,11 @@ dconf write "$custom_keys/fzfv/name" "'fzfv'"
 # dconf write "$custom_keys/envoker/command" "'gnome-terminal --window-with-profile=envoker'"
 # dconf write "$custom_keys/envoker/name" "'envoker'"
 # Terminal
-dconf write "$custom_keys/terminal/binding" "'<Super>2'"
+dconf write "$custom_keys/terminal/binding" "'<Super>Return'"
 dconf write "$custom_keys/terminal/command" "'gnome-terminal'"
 dconf write "$custom_keys/terminal/name" "'terminal'"
 # Monitor
-dconf write "$custom_keys/monitor/binding" "'<Super><Alt>x'"
+dconf write "$custom_keys/monitor/binding" "'<Super>t'"
 dconf write "$custom_keys/monitor/command" "'gnome-system-monitor'"
 dconf write "$custom_keys/monitor/name" "'monitor'"
 

@@ -6,7 +6,7 @@ pop_shell_settings="org.gnome.shell.extensions.pop-shell"
 gsettings set org.gnome.shell disable-user-extensions false
 
 gsettings --schemadir $pop_shell_schemas set $pop_shell_settings toggle-tiling "['']"
-gsettings --schemadir $pop_shell_schemas set $pop_shell_settings toggle-floating "['<Super>f']"
+gsettings --schemadir $pop_shell_schemas set $pop_shell_settings toggle-floating "['<Super><Alt>f']"
 
 gsettings --schemadir $pop_shell_schemas set $pop_shell_settings mouse-cursor-follows-active-window false
 
