@@ -66,7 +66,7 @@ bash $SCRIPT_DIR/setup/base-cron.sh
 bash $SCRIPT_DIR/symlinks/docs.sh
 bash $SCRIPT_DIR/setup/vscode.sh
 bash $SCRIPT_DIR/setup/onlyoffice.sh
-bash $SCRIPT_DIR/setup/flameshot.sh
+# bash $SCRIPT_DIR/setup/flameshot.sh
 bash $SCRIPT_DIR/setup/telegram.sh
 bash $SCRIPT_DIR/setup/tmux.sh
 
