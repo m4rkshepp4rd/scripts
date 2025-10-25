@@ -24,7 +24,7 @@ if [[ -z $1 ]]; then
     bash $SCRIPT_DIR/setup/python-packages.sh
     bash $SCRIPT_DIR/gnome/extensions.sh
     echo "Apps and GNOME extensions are installed"
-1
+
     sleep 2
     clear
     echo "Yandex.Disk setup..."
