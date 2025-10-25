@@ -132,7 +132,7 @@ else
         bash $SCRIPT_DIR/gnome/cleanup.sh
 
         clear
-        echo "Linux setup id done! Rebooting to apply settings"
+        echo "Linux setup is done! Rebooting to apply settings"
         sleep 3
         sudo systemctl reboot
     else
