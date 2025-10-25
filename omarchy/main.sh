@@ -77,5 +77,5 @@ sudo systemctl enable input-remapper
 
 clear
 echo "Linux setup is done! Rebooting to apply settings"
-sleep 3
+sleep 120
 sudo systemctl reboot
