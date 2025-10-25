@@ -14,7 +14,7 @@ fi
 
 bin_path="$(which onlyoffice-desktopeditors)"
 if [[ -z $bin_path ]]; then
-    paru -Sy onlyoffice-desktopeditors
+    paru -Sy onlyoffice-bin
 fi
 
 if [[ ! -d $config_fld ]]; then

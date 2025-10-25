@@ -97,7 +97,7 @@ else
         clear
         echo "Setting up and running custom scripts"
         # Read env vars
-        # source $MS_DOCS/configs/env/.shared_env
+        source $MS_DOCS/configs/env/.shared_env
 
         # Run custom scripts that use my env vars
         dconf write "$dconf_terminal_path/:$linux_setup_uuid/use-custom-command" "false"
