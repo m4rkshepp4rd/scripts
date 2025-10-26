@@ -3,8 +3,7 @@
 rm $HOME/.config/yandex-disk/config.cfg
 
 
-bin_path="$(which yandex-disk)"
-if [[ -z $bin_path ]]; then
+if ! command -v "yandex-disk" &> /dev/null; then
     paru -Sy yandex-disk
 fi
 

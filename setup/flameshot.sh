@@ -12,8 +12,7 @@ if [[ ! -z $1 && -d $1 ]]; then
 fi
 
 
-bin_path="$(which flameshot)"
-if [[ -z $bin_path ]]; then
+if ! command -v "flameshot" &> /dev/null; then
     paru -Sy flameshot wl-clipboard
 fi
 

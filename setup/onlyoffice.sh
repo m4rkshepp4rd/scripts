@@ -12,8 +12,7 @@ if [[ ! -z $1 && -d $1 ]]; then
 fi
 
 
-bin_path="$(which onlyoffice-desktopeditors)"
-if [[ -z $bin_path ]]; then
+if ! command -v "onlyoffice-desktopeditors" &> /dev/null; then
     paru -Sy onlyoffice-bin
 fi
 

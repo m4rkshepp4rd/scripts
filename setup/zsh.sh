@@ -11,13 +11,12 @@ if [[ ! -z $1 && -d $1 ]]; then
     config_fld=$1
 fi
 
-bin_path="$(which zsh)"
-if [[ -z $bin_path ]]; then
+if ! command -v "zsh" &> /dev/null; then
     paru -Sy zsh
-    chsh -s $(which zsh)
 fi
 
 if [[ " $* " == *" -f "* ]]; then
+    chsh -s $(which zsh)
     paru -Sy --needed --noconfirm zsh-history-substring-search zsh-syntax-highlighting zsh-autosuggestions ttf-meslo-nerd-font-powerlevel10k
 
     p10k_path=$HOME/.powerlevel10k

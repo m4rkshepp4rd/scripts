@@ -29,8 +29,7 @@ get_args $2
 get_args $3
 
 
-bin_path="$(which code-insiders)"
-if [[ -z $bin_path ]]; then
+if ! command -v "code-insiders" &> /dev/null; then
     paru -Sy visual-studio-code-insiders-bin
 fi
 

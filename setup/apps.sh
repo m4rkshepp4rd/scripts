@@ -4,8 +4,7 @@
 # Install apps
 sudo pacman -Syu --needed base-devel llvm llvm-libs
 
-bin_path="$(which paru)"
-if [[ -z $bin_path ]]; then
+if ! command -v "paru" &> /dev/null; then
     paru_path="$HOME/paru" 
     git clone https://aur.archlinux.org/paru.git $paru_path
     cd $paru_path
@@ -19,6 +18,7 @@ paru -Syu --needed\
  amneziavpn-bin\
  gnome-calculator\
  alacritty\
+ zsh\
  vlc obs-studio flameshot wl-clipboard\
  onlyoffice-bin drawio-desktop\
  visual-studio-code-insiders-bin\

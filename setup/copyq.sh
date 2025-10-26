@@ -12,8 +12,7 @@ if [[ ! -z $1 && -d $1 ]]; then
 fi
 
 
-bin_path="$(which copyq)"
-if [[ -z $bin_path ]]; then
+if ! command -v "copyq" &> /dev/null; then
     paru -Sy copyq
 fi
 

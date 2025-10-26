@@ -15,8 +15,7 @@ if [[ -z $MS_YD_GPG ]]; then
     exit 1
 fi
 
-bin_path="$(which crontab)"
-if [[ -z $bin_path ]]; then
+if ! command -v "crontab" &> /dev/null; then
     paru -Sy cronie
 fi
 

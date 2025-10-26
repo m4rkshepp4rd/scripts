@@ -8,8 +8,7 @@ fi
 git_crypto="$MS_CFG/git/$1"
 
 
-bin_path="$(which git)"
-if [[ -z $bin_path ]]; then
+if ! command -v "git" &> /dev/null; then
     paru -Sy git
 fi
 
