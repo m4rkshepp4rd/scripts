@@ -29,4 +29,7 @@ paru -Syu --needed\
  cronie\
  evince\
  loupe\
+ nautilus\
+ gnome-disk-utility\
+ btop\
  ttf-font-awesome noto-fonts-emoji ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd
