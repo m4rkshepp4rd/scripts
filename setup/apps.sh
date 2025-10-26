@@ -9,7 +9,7 @@ if ! command -v "paru" &> /dev/null; then
     git clone https://aur.archlinux.org/paru.git $paru_path
     cd $paru_path
     makepkg -si
-    cd
+    cd -
 fi
 
 paru -Syu --needed\
