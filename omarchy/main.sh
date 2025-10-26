@@ -77,7 +77,9 @@ bash $SCRIPT_DIR/setup/pyvenv.sh x
 sudo systemctl restart input-remapper
 sudo systemctl enable input-remapper
 
+bash $SCRIPT_DIR/omarchy/cleanup.sh
+
 clear
-echo "Linux setup is done! Rebooting to apply settings"
-sleep 120
+echo "Linux setup is done! Rebooting in 1 minute"
+sleep 60
 sudo systemctl reboot
