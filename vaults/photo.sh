@@ -10,4 +10,7 @@ if [[ -z $MS_GPG_PASS ]]; then
     exit 1
 fi
 
-cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$HOME/Documents/Photos" "$MS_YD/_photo"
+MNT="$HOME/Documents/Photos"
+mkdir -p "$MNT"
+
+cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MNT" "$MS_YD/_photo"

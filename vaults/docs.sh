@@ -15,4 +15,7 @@ if [[ -z $MS_GPG_PASS ]]; then
     exit 1
 fi
 
-cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$MS_YD/_docs"
+MNT="$MS_DOCS"
+mkdir -p "$MNT"
+
+cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MNT" "$MS_YD/_docs"
