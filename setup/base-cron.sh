@@ -15,9 +15,12 @@ if [[ -z $MS_YD_GPG ]]; then
     exit 1
 fi
 
+bin_path="$(which crontab)"
+if [[ -z $bin_path ]]; then
+    paru -Sy cronie
+fi
 
 crontab_tmp="/tmp/crontab"
-
 
 sudo echo "BASH_ENV=$HOME/.sharenv" >> $crontab_tmp
 sudo echo "*/5 * * * * $MS_LOCAL_BIN/x-index" >> $crontab_tmp
