@@ -64,6 +64,9 @@ rm -rf "$config_fld/cron"
 mkdir -p "$config_fld/cron"
 crontab -l > "${config_fld}/cron/crontab"
 
+rm -rf "$config_fld/hyprland"
+mkdir -p "$config_fld/hyprland"
+cp -r $HOME/.config/hypr/* "$config_fld/hyprland"
 
 echo "($(basename $0))" "Configs saved"
 
