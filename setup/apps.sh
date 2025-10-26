@@ -15,6 +15,7 @@ fi
 
 paru -Syu --needed\
  braus-git brave-browser yandex-disk telegram-desktop qbittorrent\
+ cryptomator-cli\
  amneziavpn-bin\
  gnome-calculator\
  vlc obs-studio flameshot wl-clipboard\

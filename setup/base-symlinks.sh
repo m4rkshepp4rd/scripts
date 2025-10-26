@@ -15,10 +15,10 @@ rm -rf $HOME/.x
 ln -s $MS_SCR $HOME/.x
 
 # cryptomator
-rm -rf $HOME/Documents/{_42,_photo,_docs}
-ln -s $HOME/.local/share/Cryptomator/mnt/_42 $HOME/Documents/_42
-ln -s $HOME/.local/share/Cryptomator/mnt/_photo $HOME/Documents/_photo
-ln -s $MS_DOCS $HOME/Documents/_docs
+# rm -rf $HOME/Documents/{_42,_photo,_docs}
+# ln -s $HOME/.local/share/Cryptomator/mnt/_42 $HOME/Documents/_42
+# ln -s $HOME/.local/share/Cryptomator/mnt/_photo $HOME/Documents/_photo
+# ln -s $MS_DOCS $HOME/Documents/_docs
 
 
 # basic from cloud

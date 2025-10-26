@@ -22,7 +22,7 @@ crontab_tmp="/tmp/crontab"
 sudo echo "BASH_ENV=$HOME/.sharenv" >> $crontab_tmp
 sudo echo "*/5 * * * * $MS_LOCAL_BIN/x-index" >> $crontab_tmp
 sudo echo "*/10 * * * * $MS_LOCAL_BIN/x-cfg-backups" >> $crontab_tmp
-sudo echo "*/10 * * * * $MS_LOCAL_BIN/x-symlinks-docs" >> $crontab_tmp
+sudo echo "# */10 * * * * $MS_LOCAL_BIN/x-symlinks-docs" >> $crontab_tmp
 sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-jira-crawl" >> $crontab_tmp
 sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-confluence-crawl" >> $crontab_tmp
 sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-gpg $MS_DOCS $MS_YD_GPG/docs" >> $crontab_tmp

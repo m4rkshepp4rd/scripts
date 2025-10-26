@@ -3,7 +3,7 @@
 # should be located in /omarchy
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/.." &> /dev/null && pwd )
 
-MS_DOCS="$HOME/.local/share/Cryptomator/mnt/_docs"
+MS_DOCS="$HOME/Documents/docs"
 
 bash $SCRIPT_DIR/setup/apps.sh
 bash $SCRIPT_DIR/setup/python-packages.sh
@@ -33,10 +33,11 @@ echo "Files have been downloaded"
 sleep 3
 clear
 
-echo "Installing Cryptomator"
-bash $SCRIPT_DIR/setup/cryptomator.sh
-echo "Cryptomator is installed"
-echo "Waiting for Cryptomator to be unlocked..."
+# echo "Installing Cryptomator"
+# bash $SCRIPT_DIR/setup/cryptomator.sh
+# echo "Cryptomator is installed"
+echo "Waiting for Cryptomator _docs vault to be unlocked..."
+echo "Use cryptomator-cli unlock --password:stdin --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$HOME/Yandex.Disk/_docs""
 
 cryptomator_unlocked="0"
 while [[ $cryptomator_unlocked == "0" ]]
