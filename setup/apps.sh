@@ -18,6 +18,7 @@ paru -Syu --needed\
  cryptomator-cli\
  amneziavpn-bin\
  gnome-calculator\
+ alacritty\
  vlc obs-studio flameshot wl-clipboard\
  onlyoffice-bin drawio-desktop\
  visual-studio-code-insiders-bin\

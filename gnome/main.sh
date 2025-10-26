@@ -20,6 +20,8 @@ if [[ -z $1 ]]; then
     clear
     echo "Installing apps and GNOME extensions..."
     bash $SCRIPT_DIR/setup/apps.sh
+    # Will be gone, need to be switched to alacritty
+    paru -S gnome-terminal
     bash $SCRIPT_DIR/gnome/autostart.sh
     bash $SCRIPT_DIR/setup/python-packages.sh
     bash $SCRIPT_DIR/gnome/extensions.sh

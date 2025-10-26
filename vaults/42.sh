@@ -11,7 +11,6 @@ if [[ -z $MS_GPG_PASS ]]; then
 fi
 
 MNT="$HOME/Work"
-
 mkdir -p "$MNT"
 
 cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MNT" "$MS_YD/_42"
