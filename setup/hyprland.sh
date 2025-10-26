@@ -18,7 +18,7 @@ fi
    
 rm -rf $HOME/.config/hypr
 mkdir -p $HOME/.config/hypr
-cp $config_fld/* $HOME/.config/hypr
+cp -r $config_fld/* $HOME/.config/hypr
 
 hyprctl reload
 clear
