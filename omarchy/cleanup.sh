@@ -2,7 +2,7 @@
 
 paru -Rns $(paru -Qq 1password-beta 1password-cli aether\
  lazydocker lazygit libreoffice-fresh obsidian\
- xournalpp typora signal-desktop spotify\
+ xournalpp typora signal-desktop spotify imv mpv\
 )
  #pinta mpv\)
 
