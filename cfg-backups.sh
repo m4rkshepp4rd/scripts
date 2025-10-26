@@ -12,54 +12,55 @@ fi
 
 config_fld="$MS_CFG_BACKUPS/$(hostname)"
 
-
+rm -rf "$config_fld/bash"
 mkdir -p "$config_fld/bash"
 cp -f $HOME/.bashrc "${config_fld}/bash/.bashrc"
 
-
+rm -rf "$config_fld/zsh"
 mkdir -p "$config_fld/zsh"
 cp -f $HOME/.zshrc "${config_fld}/zsh/.zshrc"
 cp -f $HOME/.zshenv "${config_fld}/zsh/.zshenv"
 cp -f $HOME/.p10k.zsh "${config_fld}/zsh/.p10k.zsh"
 
-
+rm -rf "$config_fld/env"
 mkdir -p "$config_fld/env"
 cp -f $HOME/.sharenv "${config_fld}/env/.sharenv"
 cp -f $HOME/.config/.myhardware.yml "${config_fld}/env/.myhardware.yml"
 
-
+rm -rf "$config_fld/flameshot"
 mkdir -p "$config_fld/flameshot"
 cp -f $HOME/.config/flameshot/flameshot.ini "${config_fld}/flameshot/flameshot.ini"
 
-
+rm -rf "$config_fld/copyq"
 mkdir -p "$config_fld/copyq"
 cp -f $HOME/.config/copyq/copyq.conf "${config_fld}/copyq/copyq.conf"
 
+rm -rf "$config_fld/tmux"
 mkdir -p "$config_fld/tmux"
 cp -f $HOME/.config/tmux/tmux.conf "${config_fld}/tmux/tmux.conf"
 
-
+rm -rf "$config_fld/onlyoffice"
 mkdir -p "$config_fld/onlyoffice"
 cp -f $HOME/.config/onlyoffice/DesktopEditors.conf "${config_fld}/onlyoffice/DesktopEditors.conf"
 
-
+rm -rf "$config_fld/pop-shell"
 mkdir -p "$config_fld/pop-shell"
 cp -f $HOME/.config/pop-shell/config.json "${config_fld}/pop-shell/config.json"
 
-
+rm -rf "$config_fld/yandex-disk"
 mkdir -p "$config_fld/yandex-disk"
 cp -f $HOME/.config/yandex-disk/config.cfg "${config_fld}/yandex-disk/config.cfg"
 
-
+rm -rf "$config_fld/telegram"
 mkdir -p "$config_fld/telegram"
 cp -f $HOME/.local/share/TelegramDesktop/tdata/shortcuts-custom.json "${config_fld}/telegram/shortcuts-custom.json"
 
-
+rm -rf "$config_fld/vscode"
 mkdir -p "$config_fld/vscode"
 code-insiders --list-extensions > "${config_fld}/vscode/extensions.txt"
 cp -f $HOME/.config/Code\ -\ Insiders/User/settings.json "${config_fld}/vscode/settings.json"
 
-
+rm -rf "$config_fld/cron"
 mkdir -p "$config_fld/cron"
 crontab -l > "${config_fld}/cron/crontab"
 
