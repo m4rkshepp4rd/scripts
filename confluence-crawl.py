@@ -9,12 +9,16 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 from html2text import html2text
 
+
+if "VZ_CONFL_DATA" not in os.environ:
+    raise Exception("Env var VZ_CONFL_DATA not defined")
+if "VZ_CONFL_INDEX" not in os.environ:
+    raise Exception("Env var VZ_CONFL_INDEX not defined")
+if "VZ_CONFL_TOKEN" not in os.environ:
+    raise Exception("Env var VZ_CONFL_TOKEN not defined")
+
 DATA_PATH = os.environ['VZ_CONFL_DATA']
 INDEX_FILE = os.environ['VZ_CONFL_INDEX']
-if not DATA_PATH:
-    raise Exception("Env var VZ_CONFL_DATA not defined")
-if not INDEX_FILE:
-    raise Exception("Env var VZ_CONFL_INDEX not defined")
 TOKEN = open(os.environ['VZ_CONFL_TOKEN'], "r", encoding="utf-8").read()
 
 HOST = "https://wiki.mos-team.ru"

@@ -11,13 +11,16 @@ from markdown import markdown
 from bs4 import BeautifulSoup
 
 
+if "VZ_JIRA_DATA" not in os.environ:
+    raise Exception("Env var VZ_JIRA_DATA not defined")
+if "VZ_JIRA_INDEX" not in os.environ:
+    raise Exception("Env var VZ_JIRA_INDEX not defined")
+if "VZ_JIRA_TOKEN" not in os.environ:
+    raise Exception("Env var VZ_JIRA_TOKEN not defined")
+
 
 DATA_PATH = os.environ['VZ_JIRA_DATA']
 INDEX_FILE = os.environ['VZ_JIRA_INDEX']
-if not DATA_PATH:
-    raise Exception("Env var VZ_JIRA_DATA not defined")
-if not INDEX_FILE:
-    raise Exception("Env var VZ_JIRA_INDEX not defined")
 TOKEN = open(os.environ['VZ_JIRA_TOKEN'], "r", encoding="utf-8").read()
 
 

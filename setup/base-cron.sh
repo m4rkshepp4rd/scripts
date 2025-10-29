@@ -25,11 +25,10 @@ sudo echo "BASH_ENV=$HOME/.sharenv" >> $crontab_tmp
 sudo echo "*/5 * * * * $MS_LOCAL_BIN/x-index" >> $crontab_tmp
 sudo echo "*/10 * * * * $MS_LOCAL_BIN/x-cfg-backups" >> $crontab_tmp
 sudo echo "# */10 * * * * $MS_LOCAL_BIN/x-symlinks-docs" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-jira-crawl" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-confluence-crawl" >> $crontab_tmp
+sudo echo "# */30 * * * * source $HOME/.sharenv && $MS_LOCAL_BIN/x-jira-crawl" >> $crontab_tmp
+sudo echo "# */30 * * * * source $HOME/.sharenv && $MS_LOCAL_BIN/x-confluence-crawl" >> $crontab_tmp
 sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-gpg $MS_DOCS $MS_YD_GPG/docs" >> $crontab_tmp
 sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-gpg $HOME/Documents/projects $MS_YD_GPG/projects" >> $crontab_tmp
-sudo echo "# 10,20,40,50 * * * * export $(dbus-launch) && source /home/user/.sharenv && /home/user/.local/bin/x-gnome-menu && kill -9 '$DBUS_SESSION_BUS_PID'" >> $crontab_tmp
 crontab $crontab_tmp
 rm $crontab_tmp
 

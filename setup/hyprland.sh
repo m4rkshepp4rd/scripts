@@ -21,4 +21,5 @@ mkdir -p $HOME/.config/hypr
 cp -r $config_fld/* $HOME/.config/hypr
 
 hyprctl reload
+sleep 2
 clear
