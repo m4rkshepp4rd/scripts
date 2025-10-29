@@ -10,6 +10,7 @@ cur_conf="$templates_fld/current.conf"
 
 if [[ " $* " == *" -r "* ]]; then
     rm "$cur_conf" &> /dev/null
+    touch "$cur_conf"
     exit 0
 fi
 

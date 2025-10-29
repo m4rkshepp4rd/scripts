@@ -36,6 +36,7 @@ clear
 # echo "Installing Cryptomator"
 # bash $SCRIPT_DIR/setup/cryptomator.sh
 # echo "Cryptomator is installed"
+mkdir -p "$MS_DOCS"
 echo "Waiting for Cryptomator _docs vault to be unlocked..."
 echo "Use cryptomator-cli unlock --password:stdin --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$HOME/Yandex.Disk/_docs""
 
@@ -46,6 +47,7 @@ do
     clear
     cryptomator_unlocked="$(ls $MS_DOCS | wc -l)"
     echo "Waiting for Cryptomator to be unlocked..."
+    echo "Use cryptomator-cli unlock --password:stdin --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$HOME/Yandex.Disk/_docs""
 done
 echo "Cryptomator has been unlocked"
 sleep 2
