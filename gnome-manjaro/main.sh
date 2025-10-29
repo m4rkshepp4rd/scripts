@@ -10,7 +10,7 @@ auto_logout_tmp="/tmp/$auto_name"
 linux_setup_uuid="09748d28-2d63-4294-9439-0ae1718afde1"
 base_profile_uuid="b1dcc9dd-5262-4d8d-a863-c897e6d979b9"
 
-MS_DOCS="$HOME/.local/share/Cryptomator/mnt/_docs"
+MS_DOCS="$HOME/Documents/docs"
 
 if [[ -z $1 ]]; then
     bash $SCRIPT_DIR/gnome/settings.sh
@@ -80,23 +80,24 @@ else
         sudo systemctl reboot
     elif [[ $1 == "2" ]]; then
         echo "Resuming after reboot"
-        echo "Installing Cryptomator"
-        bash $SCRIPT_DIR/setup/cryptomator.sh
-        echo "Cryptomator is installed"
-        echo "Waiting for Cryptomator to be unlocked..."
-        # while
+
+        mkdir -p "$MS_DOCS"
+        echo "Waiting for Cryptomator _docs vault to be unlocked..."
+        echo "Use cryptomator-cli unlock --password:stdin --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$HOME/Yandex.Disk/_docs""
+
         cryptomator_unlocked="0"
         while [[ $cryptomator_unlocked == "0" ]]
         do
-            sleep 30
+            sleep 10
             clear
             cryptomator_unlocked="$(ls $MS_DOCS | wc -l)"
             echo "Waiting for Cryptomator to be unlocked..."
+            echo "Use cryptomator-cli unlock --password:stdin --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MS_DOCS" "$HOME/Yandex.Disk/_docs""
         done
         echo "Cryptomator has been unlocked"
-
         sleep 2
         clear
+        
         echo "Setting up and running custom scripts"
         # Read env vars
         source $MS_DOCS/configs/env/.shared_env
@@ -115,8 +116,9 @@ else
         bash $SCRIPT_DIR/bin.sh
         bash $SCRIPT_DIR/index.sh
         bash $SCRIPT_DIR/setup/base-symlinks.sh
+        bash $SCRIPT_DIR/symlinks/x.sh -l
         bash $SCRIPT_DIR/setup/base-cron.sh
-        bash $SCRIPT_DIR/symlinks/docs.sh
+        # bash $SCRIPT_DIR/symlinks/docs.sh
         bash $SCRIPT_DIR/setup/vscode.sh
         bash $SCRIPT_DIR/setup/pop-shell.sh
         bash $SCRIPT_DIR/setup/onlyoffice.sh

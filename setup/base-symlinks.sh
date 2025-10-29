@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_SCR ]]; then
-    echo "($(basename $0))" "Env var MS_SCR not defined"
-    exit 1
-fi
-
 if [[ -z $MS_YD_SYNC ]]; then
     echo "($(basename $0))" "Env var MS_YD_SYNC not defined"
     exit 1
 fi
-
-# my scripts
-rm -rf $HOME/.x
-ln -s $MS_SCR $HOME/.x
 
 # cryptomator
 # rm -rf $HOME/Documents/{_42,_photo,_docs}
