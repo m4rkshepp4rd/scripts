@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-f="$(fzf)"
-if [[ -d $f ]]; then
-	setsid xdg-open "$f"
-else
-	setsid xdg-open "$(dirname $f)"
+f=$(fzf)
+if [ -n "$f" ]; then
+    if [[ -d "$f" ]]; then
+		setsid xdg-open "$f" &
+	else
+		setsid xdg-open "$(dirname "$f")" &
+	fi
+	sleep 0.1
 fi
-
-# xdg-open "$(dirname "$(fzf)")">/dev/null 2>&1
+exit 0

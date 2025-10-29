@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
-
-setsid code-insiders "$(fzf)"
+f=$(fzf)
+if [ -n "$f" ]; then
+    setsid code-insiders "$f" &
+    sleep 0.1
+fi
+exit 0
 

@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_MEDIA ]]; then
-    echo "($(basename $0))" "Env var MS_MEDIA not defined"
-    exit 1
+f=$(fzf)
+if [ -n "$f" ]; then
+    setsid vlc "$f" &
+    sleep 0.1
 fi
-
-setsid $MS_MEDIA "$(fzf)"
-
+exit 0
 # xdg-open "$(fzf)">/dev/null 2>&1
