@@ -30,3 +30,5 @@ fi
 
 rm "$cur_conf" &> /dev/null
 ln -s "$templates_fld/$1.conf" "$cur_conf"
+
+hyprctl reload
