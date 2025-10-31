@@ -17,5 +17,7 @@ fi
 browser=$2
 
 page=$(cat $1 | fzf)
-page_url="${page##* }"
-setsid $browser $page_url
+if [ -n "$page" ]; then
+    page_url="${page##* }"
+    setsid $browser $page_url
+fi
