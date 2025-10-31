@@ -19,7 +19,7 @@ browser=$2
 page=$(cat $1 | fzf --preview='rich $(echo "($(basename $0))" {} | awk "{print \$(NF-1)}") --force-terminal' --preview-window 'top:70%')
 
 if [ -n "$page" ]; then
-    page_url="${page##* }"
-    setsid $browser $page_url
+    page_url="${page##*|}"
+    setsid $browser $(echo "$page_url")
 fi
 

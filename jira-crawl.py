@@ -182,7 +182,7 @@ def update_tasks(tasks_data, last_update):
 
 
                 one_liner_parts.append(f"{DATA_PATH}/{issue["key"]}.md")
-                one_liner_parts.append(f"{TAKS_URL}/{issue["key"]}")
+                one_liner_parts.append(f"|{TAKS_URL}/{issue["key"]}")
                 
                 one_liner = " ".join(one_liner_parts).replace('\n', '').replace('\r', '') + "\n"
                 file_body = "\n".join(file_parts)

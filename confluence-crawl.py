@@ -70,7 +70,7 @@ def update_pages(pages_data, last_update):
                 file_parts.append(html2text(html))
 
                 one_liner_parts.append(f"{DATA_PATH}/{page_id}.md")
-                one_liner_parts.append(f"{PAGE_URL}{page_id}")
+                one_liner_parts.append(f"|{PAGE_URL}{page_id}")
 
                 one_liner = " ".join(one_liner_parts).replace('\n', ' ').replace('\r','') + "\n"
                 file_body = "\n".join(file_parts)

@@ -18,6 +18,6 @@ browser=$2
 
 page=$(cat $1 | fzf)
 if [ -n "$page" ]; then
-    page_url="${page##* }"
-    setsid $browser $page_url
+    page_url="${page##*|}"
+    setsid $browser $(echo "$page_url")
 fi
