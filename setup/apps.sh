@@ -32,5 +32,6 @@ paru -Syu --needed\
  nautilus\
  gnome-disk-utility\
  file-roller\
+ alsa-firmware\
  btop\
  ttf-font-awesome noto-fonts-emoji ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd
