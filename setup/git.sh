@@ -17,6 +17,6 @@ if [[ ! -d $git_crypto ]]; then
     exit 1
 fi
   
-cp -f $git_crypto/.gitconfig $HOME/.gitconfig
-cp -f $git_crypto/.git-credentials $HOME/.git-credentials
+
+cp -rf $git_crypto/. $HOME
 chmod 600 $HOME/.git-credentials

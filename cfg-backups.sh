@@ -68,5 +68,9 @@ rm -rf "$config_fld/hyprland"
 mkdir -p "$config_fld/hyprland"
 cp -r $HOME/.config/hypr/* "$config_fld/hyprland"
 
+rm -rf "$config_fld/wayland"
+mkdir -p "$config_fld/wayland"
+cp -r $HOME/.config/wayland/* "$config_fld/wayland"
+
 echo "($(basename $0))" "Configs saved"
 
