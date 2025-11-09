@@ -17,31 +17,22 @@ if [[ ! -d $MS_SCR ]]; then
 fi
 
 mkdir -p "${MS_LOCAL_BIN}"
-for path in ${MS_LOCAL_BIN}/*; do
-    path_base=${path##*/}
-    if [[ "$path_base" == x-* ]]; then
-        rm "$path"
-    fi
-done
+rm $MS_LOCAL_BIN/x-*
+rm $MS_LOCAL_BIN/xs-*
+rm $MS_LOCAL_BIN/xsm-*
+rm $MS_LOCAL_BIN/xg-*
 
-
-for path in ${MS_SCR}/*; do
-    path_base=${path##*/}
-    if [[ $path_base != "_configs" && $path_base != "_config-backups" ]];then
-        if [[ -d ${path} ]]; then
-            for subpath in ${path}/*; do
-                    subpath_base=${subpath##*/}
-                    bin_path="${MS_LOCAL_BIN}/x-${path_base}-${subpath_base%.*}"
-                    cat ${subpath} > ${bin_path}
-                    chmod +x ${bin_path}
-                    echo "($(basename $0))" "created binary ${bin_path}"
-            done
-        fi
-        if [[ -f ${path} ]]; then
-            bin_path="${MS_LOCAL_BIN}/x-${path_base%.*}"
-            cat ${path} > ${bin_path}
-            chmod +x ${bin_path}
-            echo "($(basename $0))" "created binary ${bin_path}"
-        fi
-    fi
+for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep -v ".*\.git.*"); do
+    bin_subpath="${bin#$MS_SCR/}"
+    bin_name="${bin_subpath%.*}"
+    bin_name="${bin_name/\//-}"
+    bin_path="$MS_LOCAL_BIN/x-$bin_name"
+    cp "$bin" "$bin_path"
+    chmod +x "$bin_path"
+    case $bin_name in
+        setup-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xs-${bin_name#setup-}" ;;
+        symlinks-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xsm-${bin_name#symlinks-}" ;;
+        gnome-manjaro-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xg-${bin_name#gnome-manjaro-}" ;;
+    esac
+    echo "($(basename $0))" "created binary ${bin_path}"
 done
