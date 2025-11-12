@@ -116,7 +116,7 @@ else
         bash $SCRIPT_DIR/index.sh
         bash $SCRIPT_DIR/setup/base-symlinks.sh
         bash $SCRIPT_DIR/symlinks/x.sh -l
-        bash $SCRIPT_DIR/setup/base-cron.sh
+        bash $SCRIPT_DIR/setup/cron.sh
         # bash $SCRIPT_DIR/symlinks/docs.sh
         bash $SCRIPT_DIR/setup/vscode.sh
         bash $SCRIPT_DIR/setup/pop-shell.sh
