@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-chmod_path="$1"
 
 set -e
+export chmod_path="$1"
 x-utils-check var $0 chmod_path
 set +e
 

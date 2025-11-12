@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-mount_point="$1"
-vault_path="$2"
-
 set -e
+export mount_point="$1"
+export vault_path="$2"
 x-utils-check var $0 MS_GPG_PASS mount_point vault_path
 set +e
 
