@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_LOCAL_BIN ]]; then
-    echo "($(basename $0))" "Env var MS_LOCAL_BIN not defined"
-fi
+set -e
+x-utils-check var $0 MS_LOCAL_BIN
+set +e
 
 shortcuts_path="$MS_LOCAL_BIN/x-shortcuts"
 

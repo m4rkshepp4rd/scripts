@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_BROWSER ]]; then
-    echo "($(basename $0))" "Env var MS_BROWSER not defined"
-    exit 1
-fi
-
-if [[ -z $1 && ! -f $1 ]]; then
-    echo "($(basename $0))" "File $1 not found for fzf"
-    exit 1
-fi
+set -e
+export fzf_file="$1"
+x-utils-check var $0 MS_BROWSER fzf_file
+x-utils-check file $0 $fzf_file
+set +e
 
 if [[ -z $2 ]]; then
     browser=$MS_BROWSER
