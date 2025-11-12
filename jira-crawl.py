@@ -59,10 +59,10 @@ def search(offset):
         "jql": "project = GISEHD order by updated DESC"
     })
 
-    print(f"(jira-crawl) [{str(datetime.now()).split('.')[0]}] /search: startAt={offset}")
+    print(f"jira-crawl: [{str(datetime.now()).split('.')[0]}] /search: startAt={offset}")
     res = r.post(f"{HOST}/rest/api/latest/search", headers=HEADERS, data=payload)
     if res.status_code != 200:
-        raise Exception(f"(jira-crawl) POST /search returned code {res.status_code}")
+        raise Exception(f"jira-crawl: POST /search returned code {res.status_code}")
     return json.loads(res.text)
 
 
@@ -73,7 +73,7 @@ def update_tasks(tasks_data, last_update):
         data = search(offset)
 
         issues = data["issues"]
-        print(f"(jira-crawl) response 200: returned {len(issues)} issues, total {data["total"]}")
+        print(f"jira-crawl: response 200: returned {len(issues)} issues, total {data["total"]}")
         for issue in issues:
             fields = issue["fields"]
             if datetime.fromisoformat(fields["updated"]).astimezone(perm) <= last_update:
@@ -213,8 +213,8 @@ if __name__ == "__main__":
 
     last_update = last_update.astimezone(perm)
     update_start = datetime.now().astimezone(perm)
-    print(f"(jira-crawl) Started updating at {str(update_start).split(".")[0]}")
-    print(f"(jira-crawl) Last update {str(last_update).split(".")[0]}")
+    print(f"jira-crawl: Started updating at {str(update_start).split(".")[0]}")
+    print(f"jira-crawl: Last update {str(last_update).split(".")[0]}")
 
     tasks_data, updated_keys = update_tasks(tasks_data, last_update)
 
@@ -227,7 +227,7 @@ if __name__ == "__main__":
         for k in updated_keys:
             with open(f"{DATA_PATH}/{k}.md", "w", encoding="utf-8") as f:
                 f.write(tasks_data[k][1])
-        print(f"(jira-crawl) Updated {len(updated_keys)} tasks in {DATA_PATH}")
+        print(f"jira-crawl: Updated {len(updated_keys)} tasks in {DATA_PATH}")
     
     else:
-        print("(jira-crawl) Tasks have not changed sinse last update")
+        print("jira-crawl: Tasks have not changed sinse last update")

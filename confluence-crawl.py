@@ -38,15 +38,15 @@ def update_pages(pages_data, last_update):
     last_modified = str(last_update).split()[0]
     while True:
 
-        print(f"(confluence-crawl) [{str(datetime.now()).split('.')[0]}] /search: start={offset}")
+        print(f"confluence-crawl: [{str(datetime.now()).split('.')[0]}] /search: start={offset}")
         res = r.get(f"{HOST}/rest/api/latest/search?limit={LIMIT}&start={offset}&expand=content.body.export_view&"+
             f"cql=space+%3D+%22EHDW2%22+and+type+%3D+%22page%22+and+lastmodified+%3E%3D+%22{last_modified}%22", headers=HEADERS)
         if res.status_code != 200:
-            raise Exception(f"(confluence-crawl) GET /search returned code {res.status_code}")
+            raise Exception(f"confluence-crawl: GET /search returned code {res.status_code}")
         data = json.loads(res.text)
 
         results = data["results"]
-        print(f"(confluence-crawl) response 200: returned {len(results)} pages, total {data["totalSize"]}")
+        print(f"confluence-crawl: response 200: returned {len(results)} pages, total {data["totalSize"]}")
         for result in results:
             if datetime.fromisoformat(result["lastModified"]).astimezone(perm) <= last_update:
                 return pages_data, updated_keys
@@ -105,8 +105,8 @@ if __name__ == "__main__":
 
     last_update = last_update.astimezone(perm)
     update_start = datetime.now().astimezone(perm)
-    print(f"(confluence-crawl) Started updating at {str(update_start).split(".")[0]}")
-    print(f"(confluence-crawl) Last update {str(last_update).split(".")[0]}")
+    print(f"confluence-crawl: Started updating at {str(update_start).split(".")[0]}")
+    print(f"confluence-crawl: Last update {str(last_update).split(".")[0]}")
 
     pages_data, updated_keys = update_pages(pages_data, last_update)
 
@@ -119,8 +119,8 @@ if __name__ == "__main__":
         for k in updated_keys:
             with open(f"{DATA_PATH}/{k}.md", "w", encoding="utf-8") as f:
                 f.write(pages_data[k][1])
-        print(f"(confluence-crawl) Updated {len(updated_keys)} pages in {DATA_PATH}")
+        print(f"confluence-crawl: Updated {len(updated_keys)} pages in {DATA_PATH}")
     
     else:
-        print("(confluence-crawl) Pages not changed sinse last update")
+        print("confluence-crawl: Pages not changed sinse last update")
         
