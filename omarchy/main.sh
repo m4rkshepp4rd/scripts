@@ -6,7 +6,6 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )/.." &> /dev/null && pwd
 MS_DOCS="$HOME/Documents/docs"
 
 bash $SCRIPT_DIR/setup/apps.sh
-bash $SCRIPT_DIR/setup/python-packages.sh
 
 echo "Apps installed"
 sleep 2
