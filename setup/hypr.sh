@@ -5,7 +5,7 @@ if [[ -z $MS_CFG ]]; then
     exit 1
 fi
 
-config_fld="$MS_CFG/hyprland"
+config_fld="$MS_CFG/hypr"
 
 if [[ ! -z $1 && -d $1 ]]; then
     config_fld=$1
