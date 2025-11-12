@@ -23,7 +23,6 @@ if [[ -z $1 ]]; then
     # Will be gone, need to be switched to alacritty
     paru -S gnome-terminal
     bash $SCRIPT_DIR/gnome/autostart.sh
-    bash $SCRIPT_DIR/setup/python-packages.sh
     bash $SCRIPT_DIR/gnome/extensions.sh
     echo "Apps and GNOME extensions are installed"
 
