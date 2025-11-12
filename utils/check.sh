@@ -33,6 +33,14 @@ case $1 in
             fi
         done
         ;;
+    exe) 
+        for var in "${@:3}"; do
+            if [[ ! -x $var ]]; then
+                echo "$(basename $2): File \"$var\" is not an executable" >&2
+                exit 1
+            fi
+        done
+        ;;
     *) echo "$(basename $0): Wrong check type" >&2 && exit 1 ;;
 esac
 
