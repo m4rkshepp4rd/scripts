@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_FINDINDEX ]]; then
-    echo "($(basename $0))" "Env var MS_FINDINDEX not defined"
-    exit 1
-fi
-
-if [[ -z $MS_YD ]]; then
-    echo "($(basename $0))" "Env var MS_YD not defined"
-    exit 1
-fi
+set -e
+x-utils-check var $0 MS_FINDINDEX MS_YD
+set +e
 
 find $HOME -path "$MS_YD/_*" -prune -o -print | sort > /tmp/.findindex
 find / -path "$HOME/*" -o -path "/run/*" -o -path "/proc/*" -prune -o -print | sort >> /tmp/.findindex
