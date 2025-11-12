@@ -114,7 +114,7 @@ else
         bash $SCRIPT_DIR/chmodx.sh
         bash $SCRIPT_DIR/bin.sh
         bash $SCRIPT_DIR/index.sh
-        bash $SCRIPT_DIR/setup/base-symlinks.sh
+        bash $SCRIPT_DIR/symlinks/base.sh
         bash $SCRIPT_DIR/symlinks/x.sh -l
         bash $SCRIPT_DIR/setup/cron.sh
         # bash $SCRIPT_DIR/symlinks/docs.sh
