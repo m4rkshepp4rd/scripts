@@ -22,7 +22,7 @@ for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep 
         setup-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xs-${bin_name#setup-}" ;;
         symlinks-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xsm-${bin_name#symlinks-}" ;;
         gnome-manjaro-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xg-${bin_name#gnome-manjaro-}" ;;
-        utils-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xs-${bin_name#utils-}" ;;
+        utils-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xu-${bin_name#utils-}" ;;
     esac
-    echo "($(basename $0))" "created binary ${bin_path}"
+    echo "$(basename $0): " "created binary ${bin_path}"
 done
