@@ -1,21 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_DOCS ]]; then
-    echo "($(basename $0))" "Env var MS_DOCS not defined"
-    exit 1
-fi
+set -e
+x-utils-check var $0 MS_YD MS_DOCS
+set +e
 
-if [[ -z $MS_YD ]]; then
-    echo "($(basename $0))" "Env var MS_YD not defined"
-    exit 1
-fi
-
-if [[ -z $MS_GPG_PASS ]]; then
-    echo "($(basename $0))" "Env var MS_GPG_PASS not defined"
-    exit 1
-fi
-
-MNT="$MS_DOCS"
-mkdir -p "$MNT"
-
-cryptomator-cli unlock --password:file="$MS_GPG_PASS" --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint="$MNT" "$MS_YD/_docs"
+x-utils-mount-vault "$MS_DOCS" "$MS_YD/_docs"
