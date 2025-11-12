@@ -112,7 +112,6 @@ else
         bash $SCRIPT_DIR/setup/zsh.sh -f
         bash $SCRIPT_DIR/setup/bash.sh
 
-        bash $SCRIPT_DIR/chmodx.sh
         bash $SCRIPT_DIR/bin.sh
         bash $SCRIPT_DIR/index.sh
         bash $SCRIPT_DIR/symlinks/base.sh
