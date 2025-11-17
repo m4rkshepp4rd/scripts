@@ -3,7 +3,7 @@
 set -e
 export fzf_file="$1"
 x-utils-check var $0 MS_BROWSER fzf_file
-x-utils-check file $0 $fzf_file
+x-utils-check file $0 "$fzf_file"
 set +e
 
 if [[ -z $2 ]]; then

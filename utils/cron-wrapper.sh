@@ -9,7 +9,7 @@ fi
 cmd=$(command -v "$1")
 
 set -e
-x-utils-check exe $0 $cmd
+x-utils-check exe $0 "$cmd"
 set +e
 
 $cmd "${@:2}"

@@ -2,7 +2,7 @@
 
 set -e
 x-utils-check var $0 MS_SCR MS_LOCAL_BIN
-x-utils-check dir $0 $MS_SCR
+x-utils-check dir $0 "$MS_SCR"
 set +e
 
 mkdir -p "${MS_LOCAL_BIN}"

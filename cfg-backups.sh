@@ -2,7 +2,7 @@
 
 set -e
 x-utils-check var $0 MS_CFG_BACKUPS
-x-utils-check dir $0 $MS_CFG_BACKUPS
+x-utils-check dir $0 "$MS_CFG_BACKUPS"
 set +e
 
 config_fld="$MS_CFG_BACKUPS/$(hostname)"

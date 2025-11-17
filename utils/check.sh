@@ -41,6 +41,14 @@ case $1 in
             fi
         done
         ;;
+    path) 
+        for var in "${@:3}"; do
+            if [[ ! -e $var ]]; then
+                echo "$(basename $2): Path \"$var\" does not exist" >&2
+                exit 1
+            fi
+        done
+        ;;
     *) echo "$(basename $0): Wrong check type" >&2 && exit 1 ;;
 esac
 
