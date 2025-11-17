@@ -56,12 +56,12 @@ echo "Setting up and running custom scripts"
 
 # Make sure everything up to this point does not use vars defined in this
 source $MS_DOCS/configs/env/.sharenv
+bash $SCRIPT_DIR/bin.sh
 
 bash $SCRIPT_DIR/setup/env.sh
 bash $SCRIPT_DIR/setup/zsh.sh -f
 bash $SCRIPT_DIR/setup/bash.sh
 
-bash $SCRIPT_DIR/bin.sh
 bash $SCRIPT_DIR/index.sh
 bash $SCRIPT_DIR/symlinks/base.sh
 bash $SCRIPT_DIR/symlinks/x.sh -l

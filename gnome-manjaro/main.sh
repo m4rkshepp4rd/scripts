@@ -101,6 +101,7 @@ else
         
         # Make sure everything up to this point does not use vars defined in this
         source $MS_DOCS/configs/env/.shared_env
+        bash $SCRIPT_DIR/bin.sh
 
         # Run custom scripts that use my env vars
         dconf write "$dconf_terminal_path/:$linux_setup_uuid/use-custom-command" "false"
@@ -112,7 +113,6 @@ else
         bash $SCRIPT_DIR/setup/zsh.sh -f
         bash $SCRIPT_DIR/setup/bash.sh
 
-        bash $SCRIPT_DIR/bin.sh
         bash $SCRIPT_DIR/index.sh
         bash $SCRIPT_DIR/symlinks/base.sh
         bash $SCRIPT_DIR/symlinks/x.sh -l
