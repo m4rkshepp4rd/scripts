@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-set -e
-x-utils-check var $0 MS_SCR MS_LOCAL_BIN
-x-utils-check dir $0 "$MS_SCR"
-set +e
+if [[ -z $MS_SCR || -z $MS_LOCAL_BIN || ! -d "$MS_SCR" ]]; then
+    echo "$(basename $0): No can do, check vars" >&2
+    exit 1
+fi
 
 mkdir -p "${MS_LOCAL_BIN}"
 rm $MS_LOCAL_BIN/x-*
