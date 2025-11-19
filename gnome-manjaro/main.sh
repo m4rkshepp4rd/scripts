@@ -124,6 +124,7 @@ else
         bash $SCRIPT_DIR/setup/flameshot.sh
         bash $SCRIPT_DIR/setup/telegram.sh
         bash $SCRIPT_DIR/setup/tmux.sh
+        bash $SCRIPT_DIR/setup/alacritty.sh
 
         bash $SCRIPT_DIR/gnome/settings.sh
 
