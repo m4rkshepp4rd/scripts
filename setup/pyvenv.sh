@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export SETUP_CFG="python"
+export SETUP_CFG="pyvenvs"
 DEST="$HOME"
 
 set -e
@@ -8,9 +8,6 @@ export reqs=$(x-utils-cfg-get-path $@)
 x-utils-check var $0 reqs MS_PYTHON_ENV
 x-utils-check file $0 "$reqs"
 set +e
-
-# x-utils-cmd-install $CMD
-# x-utils-cfg-install $config_fld $DEST
 
 if [[ ! -d "$MS_PYTHON_ENV" ]]; then
     mkdir -p "$MS_PYTHON_ENV"
