@@ -11,7 +11,6 @@ fi
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)
 x-utils-check var $0 config_fld
-set +e
 
 preserve_monitors="0"
 tmp_monitors="/tmp/.mymonitor-setup"
@@ -24,7 +23,8 @@ if [[ " $* " == *" -m "* ]]; then
     preserve_monitors="0"
 fi
 
-x-utils-cfg-install $config_fld $DEST
+x-utils-cfg-install $config_fld $DEST "$@"
+
 
 if [[ $preserve_monitors=="1" ]]; then
     mkdir -p "$HOME/.config/hypr/monitors"
@@ -32,6 +32,7 @@ if [[ $preserve_monitors=="1" ]]; then
 fi
 
 rm $tmp_monitors
+set +e
 
 hyprctl reload
 sleep 2

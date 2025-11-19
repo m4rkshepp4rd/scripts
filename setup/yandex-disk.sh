@@ -6,9 +6,8 @@ CMD="yandex-disk"
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)
 x-utils-check var $0 config_fld
-set +e
-
 x-utils-cmd-install $CMD
+set +e
 
 rm -rf $HOME/.config/yandex-disk
 

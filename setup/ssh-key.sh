@@ -20,7 +20,7 @@ x-utils-check file $0 "$key_fld/ssh-key"
 profile="${key_fld##*/}"
 cp -f "$key_fld/ssh-key" "$DEST/$profile.key"
 
-[[ "$*" == *" -i "* ]] && cp -f "$key_fld/ssh-key" "$DEST/id_rsa"
+[[ " $* " == *" -i "* ]] && cp -f "$key_fld/ssh-key" "$DEST/id_rsa"
 
 x-utils-chmod700 "$DEST"
 set +e

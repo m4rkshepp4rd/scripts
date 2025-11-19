@@ -54,4 +54,4 @@ touch "$config_fld/copyq/.foolproof"
 
 backup_cfg tmux hypr waybar onlyoffice yandex-disk flameshot pop-shell
 
-echo "$(basename $0): " "Configs saved"
+echo "$(basename $0): configs saved"

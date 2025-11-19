@@ -7,7 +7,9 @@ set -e
 export cfg="$1"
 export dest="$2"
 x-utils-check var $0 cfg dest
-x-utils-check file $0 "$cfg/.foolproof"
+if ! x-utils-has-flag "$*" --no-fool; then
+    x-utils-check file $0 "$cfg/.foolproof"
+fi
 x-utils-check dir $0 "$cfg"
 set +e
 

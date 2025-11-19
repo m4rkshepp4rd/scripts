@@ -11,7 +11,7 @@ else
     config_fld="$MS_CFG/$SETUP_CFG"
 fi
 
-if [[ "$1" == "-p" || "$1" == "--profile" ]]; then
+if x-utils-has-flag "$*" -p --profile; then
     export profile="$2"
     x-utils-check var $0 profile
     config_fld="$config_fld/$profile"
