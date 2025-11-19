@@ -35,6 +35,7 @@ paru -Syu --needed\
  alsa-firmware\
  btop\
  bluez-utils\
+ swayosd\
  ttf-font-awesome noto-fonts-emoji ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-mono ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-meslo-nerd\
  python-yaml\
  python-requests\
