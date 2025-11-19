@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ " $* " == *" -h "* ]]; then
+    echo "-l --symlinks    creates useful symlinks for the scripts project"
+    exit 0
+fi
+
 set -e
 x-utils-check var $0 MS_SCR
 set +e
@@ -7,7 +12,7 @@ set +e
 rm -rf "$HOME/.x"
 ln -s "$MS_SCR" "$HOME/.x"
 
-if [[ " $* " == *" -l "* ]]; then
+if x-utils-has-flag "$*" -l --symlinks; then
     set -e
     x-utils-check var $0 MS_DOCS
     set +e

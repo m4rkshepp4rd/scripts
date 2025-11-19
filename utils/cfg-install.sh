@@ -2,6 +2,10 @@
 
 # $1 - config
 # $2 - destination
+if [[ " $* " == *" -h "* ]]; then
+    echo "--no-fool    skips foolproof check"
+    exit 0
+fi
 
 set -e
 export cfg="$1"

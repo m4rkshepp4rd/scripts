@@ -2,6 +2,10 @@
 
 # $1 - config
 # $2 - destination
+if [[ " $* " == *" -h "* ]]; then
+    echo "-p --profile    installs specific profile from config directory (just a subdir)"
+    exit 0
+fi
 
 set -e
 if [[ -n $1 && -d $1 ]]; then

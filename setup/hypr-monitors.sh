@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
+if [[ " $* " == *" -h "* ]]; then
+    echo "-r --remove     Removes current monitors setup"
+    echo "-d --default    Removes current monitors setup"
+    exit 0
+fi
+
 templates_fld="$HOME/.config/hypr/monitors"
 cur_conf="$templates_fld/current.conf"
 
-if [[ " $* " == *" -r "* ]]; then
+if x-utils-has-flag ";*" -r --remove -d --default; then
     rm "$cur_conf" &> /dev/null
     touch "$cur_conf"
     exit 0

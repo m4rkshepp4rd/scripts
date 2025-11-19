@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+if [[ " $* " == *" -h "* ]]; then
+    echo "-c --no-cfg    does not copy settings.json (does it by default)"
+    echo "-e --no-ext    does not install extensions (does it by default)"
+    echo "-r --rm-ext    removes extensions"
+    exit 0
+fi
+
 export SETUP_CFG="vscode"
 CMD="code-insiders"
 

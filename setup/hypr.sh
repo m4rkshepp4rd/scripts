@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [[ " $* " == *" -h "* ]]; then
+    echo "-m    Do no preserve monitors setup (does it by default)"
+    exit 0
+fi
+
 export SETUP_CFG="hypr"
 DEST="$HOME/.config/hypr"
 
@@ -19,7 +24,7 @@ if [[ -f "$HOME/.config/hypr/monitors/current.conf" ]]; then
     preserve_monitors="1" 
 fi
 
-if [[ " $* " == *" -m "* ]]; then
+if x-utils-has-flag "$*" -m; then
     preserve_monitors="0"
 fi
 
