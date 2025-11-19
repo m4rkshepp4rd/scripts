@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-i --id-rsa    copies (created or existing key) to ~/.ssh/id_rsa"
     exit 0
 fi

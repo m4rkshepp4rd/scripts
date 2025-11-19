@@ -2,7 +2,7 @@
 
 # $1 - config
 # $2 - destination
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-p --profile    installs specific profile from config directory (just a subdir)"
     exit 0
 fi

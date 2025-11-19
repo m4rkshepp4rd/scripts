@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-l --symlinks    creates useful symlinks for the scripts project"
     exit 0
 fi

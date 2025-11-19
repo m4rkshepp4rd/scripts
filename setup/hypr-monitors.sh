@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-r --remove     removes current monitors setup"
     echo "-d --default    removes current monitors setup"
     exit 0

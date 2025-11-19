@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-m    does not preserves monitors setup (does it by default)"
     exit 0
 fi

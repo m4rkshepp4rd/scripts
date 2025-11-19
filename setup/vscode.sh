@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ " $* " == *" -h "* ]]; then
+if x-utils-has-flag "$*" -h --help; then
     echo "-c --no-cfg    does not copy settings.json (does it by default)"
     echo "-e --no-ext    does not install extensions (does it by default)"
     echo "-r --rm-ext    removes extensions"
