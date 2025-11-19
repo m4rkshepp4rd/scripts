@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 if [[ " $* " == *" -h "* ]]; then
-    echo "-r --remove     Removes current monitors setup"
-    echo "-d --default    Removes current monitors setup"
+    echo "-r --remove     removes current monitors setup"
+    echo "-d --default    removes current monitors setup"
     exit 0
 fi
 

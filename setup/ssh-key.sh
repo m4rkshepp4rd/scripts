@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ " $* " == *" -h "* ]]; then
-    echo "-i --id-rsa    Copies (created or existing key) to ~/.ssh/id_rsa"
+    echo "-i --id-rsa    copies (created or existing key) to ~/.ssh/id_rsa"
     exit 0
 fi
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ " $* " == *" -h "* ]]; then
-    echo "-m    Do no preserve monitors setup (does it by default)"
+    echo "-m    does not preserves monitors setup (does it by default)"
     exit 0
 fi
 
