@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_CFG ]]; then
-    echo "($(basename $0))" "Env var MS_CFG not defined"
+export SETUP_CFG="hypr"
+DEST="$HOME/.config/hypr"
+
+if ! command -v hyprctl &> /dev/null; then
+    echo "$(basename $2): hypr does not installed" >&2
     exit 1
 fi
 
-config_fld="$MS_CFG/hypr"
-
-if [[ ! -z $1 && -d $1 ]]; then
-    config_fld=$1
-fi
-
-if [[ ! -d $config_fld ]]; then
-    echo "($(basename $0))" "Config folder not found"
-    exit 1
-fi
+set -e
+export config_fld=$(x-utils-cfg-get-path $@)
+x-utils-check var $0 config_fld
+set +e
 
 preserve_monitors="0"
 tmp_monitors="/tmp/.mymonitor-setup"
@@ -27,11 +24,10 @@ if [[ " $* " == *" -m "* ]]; then
     preserve_monitors="0"
 fi
 
-rm -rf $HOME/.config/hypr
-mkdir -p $HOME/.config/hypr
-cp -r $config_fld/* $HOME/.config/hypr
+x-utils-cfg-install $config_fld $DEST
 
 if [[ $preserve_monitors=="1" ]]; then
+    mkdir -p "$HOME/.config/hypr/monitors"
     cp -f $tmp_monitors "$HOME/.config/hypr/monitors/current.conf"
 fi
 

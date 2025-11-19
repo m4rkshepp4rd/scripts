@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-rm $HOME/.config/yandex-disk/config.cfg
+export SETUP_CFG="yandex-disk"
+CMD="yandex-disk"
 
+set -e
+export config_fld=$(x-utils-cfg-get-path $@)
+x-utils-check var $0 config_fld
+set +e
 
-if ! command -v "yandex-disk" &> /dev/null; then
-    paru -Sy yandex-disk
-fi
+x-utils-cmd-install $CMD
+
+rm -rf $HOME/.config/yandex-disk
 
 yandex-disk setup
 yandex-disk stop

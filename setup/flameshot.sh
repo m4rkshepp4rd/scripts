@@ -1,25 +1,13 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_CFG ]]; then
-    echo "($(basename $0))" "Env var MS_CFG not defined"
-    exit 1
-fi
+export SETUP_CFG="flameshot"
+CMD="flameshot"
+DEST="$HOME/.config/flameshot"
 
-config_fld="$MS_CFG/flameshot"
+set -e
+export config_fld=$(x-utils-cfg-get-path $@)
+x-utils-check var $0 config_fld
+set +e
 
-if [[ ! -z $1 && -d $1 ]]; then
-    config_fld=$1
-fi
-
-
-if ! command -v "flameshot" &> /dev/null; then
-    paru -Sy flameshot wl-clipboard
-fi
-
-if [[ ! -d $config_fld ]]; then
-    echo "($(basename $0))" "Config folder not found"
-    exit 1
-fi
-   
-mkdir -p $HOME/.config/flameshot
-cp -f $config_fld/flameshot.ini $HOME/.config/flameshot/flameshot.ini
+x-utils-cmd-install $CMD
+x-utils-cfg-install $config_fld $DEST

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+x-utils-cmd-install nautilus
+
 nautilus="org.gnome.nautilus"
 gsettings set "$nautilus.list-view" default-zoom-level 'small'
 gsettings set "$nautilus.list-view" use-tree-view true

@@ -38,4 +38,4 @@ sudo cp $PROTEGE_DESKTOP_TMP /usr/share/applications
 rm $PROTEGE_DESKTOP_TMP
 rm $PROTEGE_TAR
 
-echo "($(basename $0))" "Installed in $PROTEGE_LOCAL_PATH"
+echo "$(basename $0): installed in $PROTEGE_LOCAL_PATH"

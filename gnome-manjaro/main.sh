@@ -127,7 +127,7 @@ else
 
         bash $SCRIPT_DIR/gnome/settings.sh
 
-        bash $SCRIPT_DIR/setup/pyvenv.sh x
+        bash $SCRIPT_DIR/setup/pyvenv.sh -p x
                 
         sudo systemctl restart input-remapper
         sudo systemctl enable input-remapper

@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_BROWSER ]]; then
-    echo "($(basename $0))" "Env var MS_BROWSER not defined"
-    exit 1
-fi
+set -e
+x-utils-check var $0 MS_BROWSER
+set +e
 
 cryptopro_link="https://cryptopro.ru/sites/default/files/private/csp/50/13000/linux-amd64.tgz"
 

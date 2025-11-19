@@ -1,55 +1,31 @@
 #!/usr/bin/env bash
 
-if [[ -z $MS_CFG ]]; then
-    echo "($(basename $0))" "Env var MS_CFG not defined"
-    exit 1
-fi
+export SETUP_CFG="vscode"
+CMD="code-insiders"
 
-config_fld="$MS_CFG/vscode"
+set -e
+export config_fld=$(x-utils-cfg-get-path $@)
+x-utils-check var $0 config_fld
+x-utils-check dir $0 "$config_fld"
+set +e
 
-no_ext="0"
-rm_ext="0"
+x-utils-cmd-install $CMD visual-studio-code-insiders-bin
 
-get_args() {
-	if [[ ! -z $1 ]]; then
-		if [[ $1 == "--no-ext" ]]; then
-			no_ext="1"
-		elif [[ $1 == "--rm-ext" ]]; then
-			rm_ext="1"
-		else
-			if [[ -d $1 ]]; then
-				config_fld="$1"
-			fi
-		fi
-	fi
-}
-
-get_args $1
-get_args $2
-get_args $3
-
-
-if ! command -v "code-insiders" &> /dev/null; then
-    paru -Sy visual-studio-code-insiders-bin
-fi
-
-if [[ ! -d $config_fld ]]; then
-    echo "($(basename $0))" "Config folder not found"
-	exit 1
-fi
-
-if [[ $rm_ext == "1" ]]; then
+if [[ "$*" == *" -r "*  || "$*" == *" --rm-ext "* || "${@: -1}" == "-r" || "${@: -1}" == "--rm-ext" ]]; then
 	for ext in $(code-insiders --list-extensions); do
 		code-insiders --uninstall-extension $ext
 	done
 fi
 
-if [[ $no_ext == "0" ]]; then
+if [[ "$*" != *" -c "*  && "$*" != *" --no-cfg "* && "${@: -1}" != "-c" && "${@: -1}" != "--no-cfg" ]]; then
+	x-utils-check file $0 "$config_fld/settings.json" || exit 1
+	mkdir -p "$HOME/.config/Code - Insiders/User"
+	cp -f "$config_fld/settings.json" $HOME/.config/Code\ -\ Insiders/User/settings.json
+fi
+
+if [[ "$*" != *" -e "*  && "$*" != *" --no-ext "* && "${@: -1}" != "-e" && "${@: -1}" != "--no-ext" ]]; then
+	x-utils-check file $0 "$config_fld/extensions.txt" || exit 1
 	while read ext; do
 		code-insiders --install-extension $ext
 	done < "$config_fld/extensions.txt"
 fi
-
-mkdir -p "$HOME/.config/Code - Insiders/User"
-cp -f "$config_fld/settings.json" $HOME/.config/Code\ -\ Insiders/User/settings.json
-
