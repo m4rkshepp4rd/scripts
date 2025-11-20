@@ -52,6 +52,6 @@ rmkdir copyq
 cp -f $HOME/.config/copyq/copyq.conf "$config_fld/copyq/copyq.conf"
 touch "$config_fld/copyq/.foolproof"
 
-backup_cfg tmux hypr waybar onlyoffice yandex-disk flameshot pop-shell alacritty swayosd
+backup_cfg tmux hypr waybar onlyoffice yandex-disk flameshot pop-shell alacritty swayosd mako
 
 echo "$(basename $0): configs saved"
