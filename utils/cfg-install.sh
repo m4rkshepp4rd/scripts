@@ -18,5 +18,5 @@ x-utils-check dir $0 "$cfg"
 set +e
 
 mkdir -p "$dest"
-cp -rf "$cfg/." "$dest"
+cp -rf --remove-destination "$cfg/." "$dest"
 rm "$dest/.foolproof"
