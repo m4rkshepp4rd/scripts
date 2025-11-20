@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-export SETUP_CFG="swayosd"
-CMD="swayosd-client"
-DEST="$HOME/.config/swayosd"
+export SETUP_CFG="rofi"
+CMD="rofi"
+DEST="$HOME/.config/rofi"
 
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)

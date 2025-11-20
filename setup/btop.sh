@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export SETUP_CFG="btop"
 CMD="btop"
-DEST="/home/user/.config/btop"
+DEST="$HOME/.config/btop"
 
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)

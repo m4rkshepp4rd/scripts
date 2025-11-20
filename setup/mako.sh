@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export SETUP_CFG="mako"
 CMD="mako"
-DEST="/home/user/.config/mako"
+DEST="$HOME/.config/mako"
 
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)

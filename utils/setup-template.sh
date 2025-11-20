@@ -12,9 +12,9 @@ else
 fi
 
 if [[ -n "$3" ]]; then
-    dest="$HOME/.config/$3"
+    dest=".config/$3"
 else
-    dest="$HOME/.config/$cfg"
+    dest=".config/$cfg"
 fi
 
 if x-utils-check var $0 MS_CFG &> /dev/null && x-utils-check dir $0 "$MS_CFG" &> /dev/null; then
@@ -32,11 +32,12 @@ cat >> "$scr" <<EOF
 #!/usr/bin/env bash
 export SETUP_CFG="$cfg"
 CMD="$cmd"
-DEST="$dest"
-
 EOF
 
+echo -n 'DEST="$HOME/' >> "$scr"
+echo "$dest\"" >> "$scr"
 cat >> "$scr" <<'EOF'
+
 set -e
 export config_fld=$(x-utils-cfg-get-path $@)
 x-utils-check var $0 config_fld
