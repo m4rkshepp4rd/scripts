@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 
-set -e
-x-utils-check var $0 MS_LOCAL_BIN MS_DOCS MS_YD_GPG
+export SETUP_CFG="cron"
 
+set -e
+export config_fld=$(x-utils-cfg-get-path $@)
+x-utils-check var $0 config_fld
+x-utils-check file $0 "$config_fld/crontab"
 x-utils-cmd-install crontab cronie
 set +e
 
 crontab_tmp="/tmp/crontab"
 
-sudo echo "*/5 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-index" >> $crontab_tmp
-sudo echo "*/10 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-cfg-backups" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-crawlers-jira-mos" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-crawlers-confluence-mos" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-gpg $MS_DOCS $MS_YD_GPG/docs" >> $crontab_tmp
-sudo echo "# */30 * * * * $MS_LOCAL_BIN/x-utils-cron-wrapper x-gpg $HOME/Documents/projects $MS_YD_GPG/projects" >> $crontab_tmp
-crontab $crontab_tmp
-rm $crontab_tmp
+envsubst < "$config_fld/crontab" > "$crontab_tmp"
+nano "$crontab_tmp"
+crontab "$crontab_tmp"
+rm "$crontab_tmp"
 
 systemctl enable cronie.service
 systemctl restart cronie.service

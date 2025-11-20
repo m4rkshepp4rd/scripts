@@ -21,7 +21,7 @@ backup_cfg() {
 }
 
 rmkdir env
-cp -f $HOME/.sharenv "$config_fld/env/.sharenv"
+cp -f $HOME/.config/.sharenv "$config_fld/env/.sharenv"
 cp -f $HOME/.config/.myhardware.yml "$config_fld/env/.myhardware.yml"
 touch "$config_fld/env/.foolproof"
 
