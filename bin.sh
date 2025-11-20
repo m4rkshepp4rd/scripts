@@ -11,6 +11,8 @@ rm $MS_LOCAL_BIN/xs-*
 rm $MS_LOCAL_BIN/xsm-*
 rm $MS_LOCAL_BIN/xg-*
 rm $MS_LOCAL_BIN/xu-*
+rm $MS_LOCAL_BIN/xv-*
+rm $MS_LOCAL_BIN/xo-*
 
 for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep -v ".*\.git.*"); do
     bin_subpath="${bin#$MS_SCR/}"
@@ -24,6 +26,8 @@ for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep 
         symlinks-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xsm-${bin_name#symlinks-}" ;;
         gnome-manjaro-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xg-${bin_name#gnome-manjaro-}" ;;
         utils-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xu-${bin_name#utils-}" ;;
+        vaults-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xv-${bin_name#vaults-}" ;;
+        omarchy-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xo-${bin_name#omarchy-}" ;;
     esac
     echo "$(basename $0): created binary ${bin_path}"
 done
