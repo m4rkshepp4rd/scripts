@@ -14,8 +14,6 @@ rm $MS_LOCAL_BIN/xu-*
 rm $MS_LOCAL_BIN/xv-*
 rm $MS_LOCAL_BIN/xo-*
 
-aliases="$HOME/.config/.bin-aliases"
-rm "$aliases"
 for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep -v ".*\.git.*"); do
     bin_subpath="${bin#$MS_SCR/}"
     bin_name="${bin_subpath%.*}"
@@ -23,13 +21,13 @@ for bin in $(find "$MS_SCR" -name ".*" -prune -o -type f -not -name '.*' | grep 
     bin_path="$MS_LOCAL_BIN/x-$bin_name"
     cp "$bin" "$bin_path"
     chmod +x "$bin_path"
-    case $bin_name in        
-        setup-*) echo "alias xs-${bin_name#setup-}='x-$bin_name'" >> "$aliases" ;;
-        symlinks-*) echo "alias xsm-${bin_name#symlinks-}='x-$bin_name'" >> "$aliases" ;;
-        gnome-manjaro-*) echo "alias xg-${bin_name#gnome-manjaro-}='x-$bin_name'" >> "$aliases" ;;
-        utils-*) echo "alias xu-${bin_name#utils-}='x-$bin_name'" >> "$aliases" ;;
-        vaults-*) echo "alias xv-${bin_name#vaults-}='x-$bin_name'" >> "$aliases" ;;
-        omarchy-*) echo "alias xo-${bin_name#omarchy-}='x-$bin_name'" >> "$aliases" ;;
+    case $bin_name in
+        setup-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xs-${bin_name#setup-}" ;;
+        symlinks-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xsm-${bin_name#symlinks-}" ;;
+        gnome-manjaro-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xg-${bin_name#gnome-manjaro-}" ;;
+        utils-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xu-${bin_name#utils-}" ;;
+        vaults-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xv-${bin_name#vaults-}" ;;
+        omarchy-*) ln -s "$bin_path" "$MS_LOCAL_BIN/xo-${bin_name#omarchy-}" ;;
     esac
     echo "$(basename $0): created binary ${bin_path}"
 done
