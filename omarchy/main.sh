@@ -76,6 +76,7 @@ bash $SCRIPT_DIR/setup/alacritty.sh
 bash $SCRIPT_DIR/setup/swayosd.sh
 bash $SCRIPT_DIR/setup/mako.sh
 bash $SCRIPT_DIR/setup/btop.sh
+bash $SCRIPT_DIR/setup/rofi.sh
 bash $SCRIPT_DIR/setup/hyprland.sh
 bash $SCRIPT_DIR/setup/nautilus.sh
 bash $SCRIPT_DIR/setup/default-apps.sh
