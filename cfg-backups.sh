@@ -46,7 +46,6 @@ touch "$config_fld/vscode/.foolproof"
 
 rmkdir cron
 crontab -l > "$config_fld/cron/crontab"
-touch "$config_fld/cron/.foolproof"
 
 rmkdir copyq
 cp -f $HOME/.config/copyq/copyq.conf "$config_fld/copyq/copyq.conf"
