@@ -113,7 +113,7 @@ else
         bash $SCRIPT_DIR/setup/zsh.sh -f
         bash $SCRIPT_DIR/setup/bash.sh
 
-        bash $SCRIPT_DIR/index.sh
+        bash $SCRIPT_DIR/index/paths.sh
         bash $SCRIPT_DIR/symlinks/base.sh
         bash $SCRIPT_DIR/symlinks/x.sh -l
         bash $SCRIPT_DIR/setup/cron.sh
@@ -135,6 +135,8 @@ else
         sudo systemctl enable input-remapper
 
         bash $SCRIPT_DIR/gnome/cleanup.sh
+
+        bash $SCRIPT_DIR/index/apps.sh
 
         clear
         echo "Linux setup is done! Rebooting to apply settings"

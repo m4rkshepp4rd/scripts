@@ -62,11 +62,10 @@ bash $SCRIPT_DIR/setup/env.sh
 bash $SCRIPT_DIR/setup/zsh.sh -f
 bash $SCRIPT_DIR/setup/bash.sh
 
-bash $SCRIPT_DIR/index.sh
+bash $SCRIPT_DIR/index/paths.sh
 bash $SCRIPT_DIR/symlinks/base.sh
 bash $SCRIPT_DIR/symlinks/x.sh -l
 bash $SCRIPT_DIR/setup/cron.sh
-# bash $SCRIPT_DIR/symlinks/docs.sh
 bash $SCRIPT_DIR/setup/vscode.sh
 bash $SCRIPT_DIR/setup/onlyoffice.sh
 # bash $SCRIPT_DIR/setup/flameshot.sh
@@ -86,6 +85,8 @@ sudo systemctl restart input-remapper
 sudo systemctl enable input-remapper
 
 bash $SCRIPT_DIR/omarchy/cleanup.sh
+
+bash $SCRIPT_DIR/index/apps.sh
 
 clear
 echo "Linux setup is done! Rebooting in 1 minute"
