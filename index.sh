@@ -19,13 +19,21 @@ while IFS= read -r dir; do
     fi
 done < /tmp/.findindex-dirs > /tmp/.sympaths
 
-# sed 's/^/"/; s/$/"/' /tmp/.findindex | xargs dirname | sort -u | grep '^/' > /tmp/.findindex-dirs
-# sed 's/^/"/; s/$/"/' /tmp/.findindex-dirs | xargs -I {} ls -A "{}/.sympath" 2> /dev/null | xargs dirname > $MS_SYMPATHS
+names=()
+while read file; do
+    name=$(grep -E "^Name=" "$file" | head -1 | cut -d= -f2)
+    no_display=$(grep -E "^NoDisplay=" "$file" | head -1 | cut -d= -f2)
+    if [[ ! -z "$name" && ! " ${names[*]} " =~ " $name " ]]; then
+        [[ "$no_display" != "true" ]] && echo "$name | $file" && names+=("$name")
+    fi
+done < <(find /usr/share/applications /usr/local/share/applications "$HOME/.local/share/applications" -name "*.desktop" 2>/dev/null) | sort > "/tmp/.desktop-apps"
 
 cp -f /tmp/.findindex "$MS_FINDINDEX"
 cp -f /tmp/.findindex-dirs "$MS_FINDINDEX_DIRS"
 cp -f /tmp/.sympaths "$MS_SYMPATHS"
+cp -f /tmp/.desktop-apps "$MS_APPS"
 rm /tmp/.findindex
 rm /tmp/.findindex-dirs
 rm /tmp/.sympaths
+rm /tmp/.desktop-apps
 
