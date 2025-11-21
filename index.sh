@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-x-utils-check var $0 MS_FINDINDEX MS_FINDINDEX_DIRS MS_SYMPATHS MS_YD
+x-utils-check var $0 MS_FINDINDEX MS_FINDINDEX_DIRS MS_SYMPATHS MS_YD MS_APPS
 set +e
 
 find $HOME -path "$MS_YD/_*" -o -path "$HOME/.local/share/Trash/*" -prune -o -print | sort > /tmp/.findindex
