@@ -12,7 +12,6 @@ set -e
 x-utils-check exe $0 "$cmd"
 set +e
 
-[ -f $HOME/.config/.sharenv ] && source $HOME/.config/.sharenv
 $cmd "${@:2}"
 exit_code=$?
 
