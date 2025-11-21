@@ -9,7 +9,7 @@ set +e
 BROWSER="$MS_BROWSER"
 SEARCH_ENGINE="https://google.com/search?q="
 
-INPUT=$(cat "$MS_APPS" | fzf --print-query -e -i --preview='echo {1} && cat {2} | grep -E "^Comment=" | head -1 | cut -d= -f2' --delimiter=' \| ' --preview-window 'bottom:40%' --prompt "🔍Apps > ")
+INPUT=$(cat "$MS_APPS" | fzf --print-query -e -i --preview='echo {1} && cat {2} | grep -E "^Comment=" | head -1 | cut -d= -f2 | fold -s -w 65' --delimiter=' \| ' --preview-window 'bottom:40%' --prompt "🔍Apps > ")
 
 if [ -z "$INPUT" ]; then
     exit 0
