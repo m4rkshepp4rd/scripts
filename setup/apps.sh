@@ -30,6 +30,7 @@ paru -Syu --needed\
  evince\
  loupe\
  nautilus\
+ nano\
  gnome-disk-utility\
  file-roller\
  alsa-firmware\
