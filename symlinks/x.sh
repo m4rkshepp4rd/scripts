@@ -14,12 +14,12 @@ ln -s "$MS_SCR" "$HOME/.x"
 
 if x-utils-has-flag "$*" -l --symlinks; then
     set -e
-    x-utils-check var $0 MS_DOCS
+    x-utils-check var $0 MS_DOCS MS_DOCUMENTS
     set +e
     rm "$MS_SCR/_configs"
     ln -s "$MS_DOCS/configs" "$MS_SCR/_configs"
     rm "$MS_SCR/_cfg-backups"
     ln -s "$MS_DOCS/cfg-backups" "$MS_SCR/_cfg-backups"
     rm "$MS_SCR/todo.md"
-    ln -s "$MS_DOCS/todo.md" "$MS_SCR/todo.md"
+    ln -s "$MS_DOCUMENTS/todo.md" "$MS_SCR/todo.md"
 fi
