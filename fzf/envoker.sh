@@ -4,7 +4,7 @@ set -e
 x-utils-check var $0 MS_LOCAL_BIN
 set +e
 
-shortcuts_path="$MS_LOCAL_BIN/x-shortcuts"
+shortcuts_path="$MS_LOCAL_BIN/x-fzf"
 
 show_menu() {
     echo "======================"
@@ -25,25 +25,25 @@ read -n 1 -s choice
 
 case $choice in
     z)
-        $shortcuts_path-fzf-url $VZ_WORK_BOOKMARKS $VZ_WORK_BROWSER
+        $shortcuts_path-url $VZ_WORK_BOOKMARKS $VZ_WORK_BROWSER
         ;;
     j)
-        $shortcuts_path-fzf-url-preview $VZ_JIRA_INDEX $VZ_WORK_BROWSER
+        $shortcuts_path-url-preview $VZ_JIRA_INDEX $VZ_WORK_BROWSER
         ;;
     w)
-        $shortcuts_path-fzf-url-preview $VZ_CONFL_INDEX $VZ_WORK_BROWSER
+        $shortcuts_path-url-preview $VZ_CONFL_INDEX $VZ_WORK_BROWSER
         ;;
     x)
-        $shortcuts_path-fzfx
+        $shortcuts_path-exe
         ;;
     c)
-        $shortcuts_path-fzfc
+        $shortcuts_path-code
         ;;
     d)
-        $shortcuts_path-fzfd
+        $shortcuts_path-dir
         ;;
     v)
-        $shortcuts_path-fzfv
+        $shortcuts_path-vlc
         ;;
     *)
         exit 1

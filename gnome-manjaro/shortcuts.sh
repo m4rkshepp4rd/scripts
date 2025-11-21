@@ -97,7 +97,7 @@ dconf write "$legacy_keys/close-tab" "'<Primary>w'"
 
 # Treminal profiles
 dconf_terminal_path="/org/gnome/terminal/legacy/profiles:"
-shortcuts_path="$MS_LOCAL_BIN/x-shortcuts"
+shortcuts_path="$MS_LOCAL_BIN/x-fzf"
 
 work_bookmarks_uuid="4298f0d9-56b0-42f6-a54b-b7762a00e4d4"
 jira_search_uuid="57a0c42c-0456-4061-b59f-6dbc94386109"
@@ -128,31 +128,31 @@ dconf write "$dconf_terminal_path/:$base_profile_uuid/visible-name" "'base-profi
 
 dconf write "$dconf_terminal_path/:$work_bookmarks_uuid/visible-name" "'work-bookmarks'"
 dconf write "$dconf_terminal_path/:$work_bookmarks_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$work_bookmarks_uuid/custom-command" "'bash -i $shortcuts_path-fzf-url $VZ_WORK_BOOKMARKS $VZ_WORK_BROWSER'"
+dconf write "$dconf_terminal_path/:$work_bookmarks_uuid/custom-command" "'bash -i $shortcuts_path-url $VZ_WORK_BOOKMARKS $VZ_WORK_BROWSER'"
 
 dconf write "$dconf_terminal_path/:$jira_search_uuid/visible-name" "'jira-search'"
 dconf write "$dconf_terminal_path/:$jira_search_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$jira_search_uuid/custom-command" "'bash -i $shortcuts_path-fzf-url-preview $VZ_JIRA_INDEX $VZ_WORK_BROWSER'"
+dconf write "$dconf_terminal_path/:$jira_search_uuid/custom-command" "'bash -i $shortcuts_path-url-preview $VZ_JIRA_INDEX $VZ_WORK_BROWSER'"
 
 dconf write "$dconf_terminal_path/:$confluence_search_uuid/visible-name" "'confluence-search'"
 dconf write "$dconf_terminal_path/:$confluence_search_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$confluence_search_uuid/custom-command" "'bash -i $shortcuts_path-fzf-url-preview $VZ_CONFL_INDEX $VZ_WORK_BROWSER'"
+dconf write "$dconf_terminal_path/:$confluence_search_uuid/custom-command" "'bash -i $shortcuts_path-url-preview $VZ_CONFL_INDEX $VZ_WORK_BROWSER'"
 
 dconf write "$dconf_terminal_path/:$fzfx_uuid/visible-name" "'fzfx'"
 dconf write "$dconf_terminal_path/:$fzfx_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$fzfx_uuid/custom-command" "'bash -i $shortcuts_path-fzfx'"
+dconf write "$dconf_terminal_path/:$fzfx_uuid/custom-command" "'bash -i $shortcuts_path-exe'"
 
 dconf write "$dconf_terminal_path/:$fzfc_uuid/visible-name" "'fzfc'"
 dconf write "$dconf_terminal_path/:$fzfc_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$fzfc_uuid/custom-command" "'bash -i $shortcuts_path-fzfc'"
+dconf write "$dconf_terminal_path/:$fzfc_uuid/custom-command" "'bash -i $shortcuts_path-code'"
 
 dconf write "$dconf_terminal_path/:$fzfd_uuid/visible-name" "'fzfd'"
 dconf write "$dconf_terminal_path/:$fzfd_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$fzfd_uuid/custom-command" "'bash -i $shortcuts_path-fzfd'"
+dconf write "$dconf_terminal_path/:$fzfd_uuid/custom-command" "'bash -i $shortcuts_path-dir'"
 
 dconf write "$dconf_terminal_path/:$fzfv_uuid/visible-name" "'fzfv'"
 dconf write "$dconf_terminal_path/:$fzfv_uuid/use-custom-command" "true"
-dconf write "$dconf_terminal_path/:$fzfv_uuid/custom-command" "'bash -i $shortcuts_path-fzfv'"
+dconf write "$dconf_terminal_path/:$fzfv_uuid/custom-command" "'bash -i $shortcuts_path-vlc'"
 
 # dconf write "$dconf_terminal_path/:$envoke_uuid/visible-name" "'envoker'"
 # dconf write "$dconf_terminal_path/:$envoke_uuid/use-custom-command" "true"
