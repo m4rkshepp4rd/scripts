@@ -10,7 +10,7 @@ x-utils-check var $0 config_fld
 
 x-utils-cmd-install $CMD
 
-if x-utils-has-flag -f --full; then
+if x-utils-has-flag "$*" -f --full; then
     chsh -s $(which zsh)
     paru -Sy --needed --noconfirm zsh-history-substring-search zsh-syntax-highlighting zsh-autosuggestions ttf-meslo-nerd-font-powerlevel10k
 

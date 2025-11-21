@@ -9,7 +9,7 @@ fi
 templates_fld="$HOME/.config/hypr/monitors"
 cur_conf="$templates_fld/current.conf"
 
-if x-utils-has-flag ";*" -r --remove -d --default; then
+if x-utils-has-flag "$*" -r --remove -d --default; then
     rm "$cur_conf" &> /dev/null
     touch "$cur_conf"
     exit 0
